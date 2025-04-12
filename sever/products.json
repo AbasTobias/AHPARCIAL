@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Teclado",
+      "price": 1200
+    },
+    {
+      "id": 2,
+      "name": "Monitor",
+      "price": 2000
+    },
+    {
+      "id": 3,
+      "name": "MousePad de Sanlorenzo ;)",
+      "price": 400
+    }
+  ]
