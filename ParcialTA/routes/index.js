@@ -1,12 +1,14 @@
-// Importamos cada ruta
-import usersRouter from "./usersRouter.js";
+
+import fightersRouter from './fightersRouter.js'; 
+
+
 
 function routerAPI( app ){
     console.log('Rutas')
-    // Definimos cada
-    app.use('/api/users', usersRouter );
-    // app.use('/api/products', productsRouter );
-
+    //
+    app.use('/api/fighters', fightersRouter);
+    // AGREGA CATEGORIAS
+    
 }
 
 export default routerAPI;
