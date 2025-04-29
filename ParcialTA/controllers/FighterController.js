@@ -1,5 +1,5 @@
 import Fighter from "../models/Fighter.js";
-
+import jsonwebtoken from "jsonwebtoken";
 // Obtener todos los luchadores
 export const getFighters = async (req, res) => {
   try {
@@ -53,5 +53,6 @@ export const deleteFighter = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 
