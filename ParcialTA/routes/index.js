@@ -1,14 +1,8 @@
+import cafesRouter from './cafesRouter.js';  
 
-import fightersRouter from './fightersRouter.js'; 
-
-
-
-function routerAPI( app ){
-    console.log('Rutas')
-    //
-    app.use('/api/fighters', fightersRouter);
-    // AGREGA CATEGORIAS
-    
+function routerAPI(app) {
+  console.log('Rutas');
+  app.use('/api/cafes', cafesRouter);
 }
 
 export default routerAPI;

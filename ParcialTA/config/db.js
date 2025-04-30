@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connectDB = async () => {
     try {
-        // Conexión a MongoDB 
-        await mongoose.connect('mongodb+srv://tobiasabas:VcFvLnAPeLYnz2hi@cluster0.xppqydo.mongodb.net/?retryWrites=true&w=majority', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB conectado');
-    } catch {
-        process.exit(1); 
+    } catch (error) {
+        console.error('Error de conexión a MongoDB:', error.message);
+        process.exit(1);
     }
 };
 
