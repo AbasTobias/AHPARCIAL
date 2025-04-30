@@ -1,6 +1,7 @@
 import Cafe from "../models/Cafe.js"; 
 
-//import jsonwebtoken  from "jsonwebtoken";
+//import jsonwebtoken from "jsonwebtoken";
+
 import dotenv from "dotenv";
 dotenv.config();
  //const secret_key =  process.env.SECRET_KEY;
@@ -61,6 +62,21 @@ export const deleteCafe = async (req, res) => {
     const deleted = await Cafe.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: "No encontrado" });
     res.json({ message: "Cafe eliminado" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getCafeByOrigin = async (req, res) => {
+  const { origen } = req.params;
+
+  try {
+    const cafes = await Cafe.find({ origin: origen });
+    if (cafes.length === 0) {
+      return res.status(404).json({ mensaje: 'No se encontraron cafés de ese país' });
+    }
+
+    res.json(cafes);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

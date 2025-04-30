@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Café</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APIREST de Café</title>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a la API de Café</h1>
-    </header>
-    <section>
-        <p>Esta es una API para gestionar cafés y sus características. Los siguientes endpoints están disponibles:</p>
-        <ul>
-            <li><a href="/cafes">Ver todos los cafés</a></li>
-            <li><a href="/cafes/{id}">Obtener café por ID</a></li>
-            <li><a href="/cafes/update/{id}">Actualizar un café</a></li>
-            <li><a href="/cafes/delete/{id}">Eliminar un café</a></li>
-        </ul>
-    </section>
-    <footer>
-        <p>Desarrollado por: [Tobias Abas]</p>
-        <p>Materia: [Aplicaciones  Hibridas]</p>
-        <p>Docente: [Jhonatan Cruz]</p>
-        <p>Código de comisión: [DWM4AP]</p>
-    </footer>
+    <script src="charge.js"></script>
+  <header>
+    <h1>Cafe API REST</h1>
+    <p>Toda la documentacion sobre el cafe aqui</p>
+  </header>
+
+  <div id="loading-screen" class="loading-screen">
+    <div class="coffee-cup">
+        <div class="coffee"></div>
+    </div>
+    <p>Potenciando Cafes</p>
+</div>
+
+
+  <main>
+    <div class="container">
+      
+      <div class="card">
+        <h2>Ver todos los cafés</h2>
+        <p>>Método:<strong> GET</p> </strong>
+        <p>Endpoint: <code>/api/cafes</code></p>
+      </div>
+
+      <div class="card">
+        <h2>Obtener café por ID</h2>
+        <p>Método: <strong> GET</p></strong>
+        <p>Endpoint: <code>/api/cafes/:id</code></p>
+      </div>
+
+      <div class="card">
+        <h2>Buscar café por país</h2>
+        <p>Método:<strong>  GET</p></strong>
+        <p>Endpoint: <code>/api/cafes/pais/Italia</code></p>
+      </div>
+
+      <div class="card">
+        <h2>Filtrar cafés por peso</h2>
+        <p>Método: <strong>GET</strong></p>
+        <p>Endpoint: <code>api/cafes/peso/250g</code></p>
+    </div>
+    
+    
+    <div class="card">
+        <h2>Filtrar cafés por categoría</h2>
+        <p>Método: <strong>GET</strong></p>
+        <p>Endpoint: <code>api/cafes/categoria/Espresso</code></p>
+    </div>
+    
+      <div class="card">
+        <h2>Crear un café</h2>
+        <p>Método:<strong>  POST</p></strong>
+        <p>Endpoint: <code>/api/cafes</code></p>
+      </div>
+
+      <div class="card">
+        <h2>Actualizar un café</h2>
+        <p>Método:<strong>  PUT</p></strong>
+        <p>Endpoint: <code>/api/cafes/:id</code></p>
+      </div>
+
+      <div class="card">
+        <h2>Eliminar un café</h2>
+        <p>Método:<strong>  DELETE</p></strong> 
+        <p>Endpoint: <code>/api/cafes/:id</code></p>
+      </div>
+      
+    
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Desarrollado por: Tobias Abas</p>
+    <p>Materia: Aplicaciones Híbridas - Docente: Jhonatan Cruz</p>
+    <p>Código de comisión: DWM4AP</p>
+  </footer>
+
 </body>
 </html>
