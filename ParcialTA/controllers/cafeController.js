@@ -81,3 +81,36 @@ export const getCafeByOrigin = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Tener cafe por categoria
+export const getCafeByCategory = async (req,res ) => {
+  const  { categoria } = req.params;
+
+  try {
+    const cafes = await Cafe.find({category: categoria});
+    if (cafes.length === 0) {
+      return res.status(404).json({mensaje: 'No se encontraron cafes de esa categoria'});
+    }
+    res.json(cafes);
+  
+  } catch (error) {
+    res.status(500).json({error: error.message});
+  }
+};
+
+// Obtiene cafe por  peso
+export const getCafeByWeight =  async (req,res) => {
+  const { peso } = req.params;
+
+  try {
+    const cafes = await Cafe.find({weight: peso});
+    if (cafes.length === 0) {
+      return res.status(404).json({mensaje: 'No se encotraron cafes de este peso '})
+    }
+    res.json(cafes);
+  
+  }catch (error) {
+    res.status(500).json({error: error.nessage});
+  }
+  
+};

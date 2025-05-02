@@ -1,5 +1,6 @@
 import express from "express";
-import { getCafes, getCafeById, addCafe, updateCafe, deleteCafe,getCafeByOrigin /*auth*/ } from "../controllers/cafeController.js";
+import { getCafes, getCafeById, addCafe, updateCafe, deleteCafe,getCafeByOrigin,getCafeByCategory, /*auth*/ 
+getCafeByWeight} from "../controllers/cafeController.js";
 
  //import { validacionToken } from "../middleware/auth.js";
 const router = express.Router();
@@ -11,6 +12,7 @@ router.post('/', addCafe);  // Crear un nuevo café
 router.put('/:id', updateCafe);  // Actualizar café por ID
 router.delete('/:id', deleteCafe);  // Eliminar café por ID
 router.get('/pais/:origen', getCafeByOrigin);// Busca cafe por pais Case Sens
-
+router.get('/categoria/:categoria',getCafeByCategory); //Busca cafe por categoria
+router.get('/peso/:peso',getCafeByWeight); //Busca cafe por peso
 
 export default router;
