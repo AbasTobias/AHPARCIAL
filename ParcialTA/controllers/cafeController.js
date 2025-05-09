@@ -42,6 +42,7 @@ export const addCafe = async (req, res) => {
     res.status(201).json(newCafe);
   } catch (error) {
     res.status(400).json({ error: error.message });
+    
   }
 };
 
