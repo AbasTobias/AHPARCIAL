@@ -56,6 +56,7 @@ export const addCafe = async (req, res) => {
       return res.status(400).json({ error: 'El nombre del café ya existe' });
     }
     res.status(400).json({ error: error.message });
+    
   }
 };
 
@@ -125,7 +126,24 @@ export const getCafeByWeight =  async (req,res) => {
     res.json(cafes);
   
   }catch (error) {
-    res.status(500).json({error: error.nessage});
+    res.status(500).json({error: error.message});
   }
   
+};
+
+export const getCafeByName = async (req,res ) => {
+const { nombre } = req.params;
+
+try {
+  const cafes = await Cafe.find({name: nombre});
+  if (cafes.length === 0) {
+    return res.status(404).json({mensaje: 'No se encontraron Cafes con este nombre'})
+  }
+  res.json(cafes);
+
+  
+}catch (error) {
+  res.status(500).json({error,message});
+}
+
 };

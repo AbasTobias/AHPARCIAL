@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+const joi = require ('joi')
 const cafeSchema = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
     price: Number,

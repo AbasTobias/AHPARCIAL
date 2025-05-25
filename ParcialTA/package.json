@@ -15,6 +15,10 @@
     "chalk": "^5.4.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+<<<<<<< HEAD
+=======
+    "express-joi-validation": "^6.0.0",
+>>>>>>> 9689fd32dfb29a14366e45eac20ca017a292b27b
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.3",
