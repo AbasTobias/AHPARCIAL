@@ -1,5 +1,5 @@
 import Cafe from "../models/Cafe.js"; 
-
+import { cafeSchema } from "../Validations/cafeValidation.js";
 //import jsonwebtoken from "jsonwebtoken";
 
 import dotenv from "dotenv";
@@ -37,13 +37,28 @@ export const getCafeById = async (req, res) => {
 // Crear un cafe nuevo
 export const addCafe = async (req, res) => {
   try {
-    const newCafe = new Cafe(req.body);
+    const { error, value } = cafeSchema.validate(req.body, {
+      abortEarly: false,
+      stripUnknown: true
+    });
+
+    if (error) {
+      const errores = error.details.map(e => e.message);
+      return res.status(400).json({ errores });
+    }
+
+    const newCafe = new Cafe(value);
     await newCafe.save();
     res.status(201).json(newCafe);
+
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({ error: 'El nombre del café ya existe' });
+    }
     res.status(400).json({ error: error.message });
   }
 };
+
 
 // Actualizar cafe por ID
 export const updateCafe = async (req, res) => {

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const cafeSchema = new mongoose.Schema({
-    name: String,
+    name: { type: String, required: true, unique: true },
     price: Number,
     description: String,
     origin: String,
