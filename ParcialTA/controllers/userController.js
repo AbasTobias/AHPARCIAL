@@ -11,13 +11,11 @@ export const addUser = async (req, res) => {
       return res.status(400).json({ errors: error.details.map(e => e.message) });
     }
 
-    // Check if email already exists
     const existingUser = await User.findOne({ email: value.email });
     if (existingUser) {
       return res.status(400).json({ error: 'El email ya está registrado' });
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(value.password, saltRounds);
     value.password = hashedPassword;
 
@@ -32,7 +30,7 @@ export const addUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.find({}, '-password'); // Excluir password en la respuesta
+    const users = await User.find({}, '-password'); 
     res.status(200).json(users);
   } catch (err) {
     res.status(500).json({ error: err.message });
